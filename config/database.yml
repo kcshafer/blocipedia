@@ -13,3 +13,9 @@ test:
   pool: 5
   username: kc
   password: 
+
+development:
+  adapter: postgresql
+  host: postgres://veanjiuudszwcy:1ELs7COyaU1Y5deiM-4HJOaNsd@ec2-54-243-125-46.compute-1.amazonaws.com:5432/d76hjh3imjsham
+  username: 
+  database: blocipedia
