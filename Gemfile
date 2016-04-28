@@ -15,6 +15,7 @@ source 'https://rubygems.org'
  gem 'jquery-rails'
  gem 'turbolinks'
  gem 'bootstrap'
+ gem 'bootstrap-sass'
  gem 'figaro'
  gem 'pry'
 
