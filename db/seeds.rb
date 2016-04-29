@@ -11,7 +11,7 @@ users = User.all
 10.times do
     Wiki.create!(
         title: Faker::Lorem.word,
-        body: Faker::Lorem.sentences(4),
+        body: Faker::Lorem.sentences(4).join(' '),
         private: false,
         user_id: users.sample.id
     )
