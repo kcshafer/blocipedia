@@ -1,0 +1,5 @@
+<ul class="list-group wiki-list">
+    <% @wikis.each do |wiki| %>
+        <li class="list-group-item"><%= link_to wiki.title, wiki %></li>
+    <% end %>
+</ul>

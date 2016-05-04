@@ -1,0 +1,5 @@
+<div id="wiki-container">
+    <h2><u><%= @wiki.title %></u></h2>
+    <p><small>Created by <%= @wiki.user.email %> at <%= @wiki.created_at %> and last updated <%= @wiki.updated_at %></small></p>
+    <p><%= @wiki.body %></p>
+</div>

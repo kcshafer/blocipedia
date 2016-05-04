@@ -5,8 +5,8 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
-    <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css" crossorigin="anonymous">
-    <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js" crossorigin="anonymous"></script>   
+    <!-- <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css" crossorigin="anonymous">
+    <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js" crossorigin="anonymous"></script> -->   
     <%= csrf_meta_tags %>
 </head>
 <body>
@@ -14,12 +14,13 @@
         <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
             <div class="nav navbar-nav">
                 <%= link_to "Home", root_path,  class: "nav-item nav-link" %>
-                <a class="nav-item nav-link" href="#">Placeholder</a>
+                <a class="nav-item nav-link" href="/wikis">Wikis</a>
                 <a class="nav-item nav-link" href="#">Placeholder</a>
             </div>
             <div class="nav navbar-nav pull-xs-right">
                 <% if user_signed_in? %>
                     Signed in as: <strong><%= current_user.email %></strong>
+                    <%= link_to 'My Wikis', my_wikis_path, :class => 'nav-item nav-link' %>
                     <%= link_to 'Edit profile', edit_user_registration_path, :class => 'nav-item nav-link' %>
                     <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'nav-item nav-link'  %>
                 <% else %>
