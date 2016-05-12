@@ -1,5 +1,12 @@
 <ul class="list-group wiki-list">
     <% @wikis.each do |wiki| %>
-        <li class="list-group-item"><%= link_to wiki.title, wiki %></li>
+        <li class="list-group-item"><%= link_to wiki.title, wiki %>
+            <% if can_edit(wiki) %>
+                <%= link_to "Edit", edit_wiki_path(wiki) %>
+            <% end %>
+            <% if can_delete(wiki) %>
+                <%= link_to "Delete", wiki_path(wiki), method: :delete, data: { confirm: 'Are you sure you want to delete this wiki?' } %>
+            <% end %>
+        </li>
     <% end %>
 </ul>
