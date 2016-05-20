@@ -18,7 +18,8 @@ source 'https://rubygems.org'
  gem 'figaro'
  gem 'pry'
  gem 'shoulda'
-
+ gem 'stripe'
+ 
 group :development do
     gem 'web-console', '~> 2.0'
 end
@@ -30,4 +31,5 @@ end
    gem 'shoulda'
    gem 'faker'
    gem 'factory_girl_rails'
+   gem 'webmock'
  end

@@ -1,14 +1,11 @@
 class WikisController < ApplicationController
   before_action :require_login, except: [:index, :show]
+
   def index
     @wikis = Wiki.all
   end
 
   def my_wikis
-    puts "my_wikis"
-    #/my_wikis - list the logged in users owned wikis
-
-    #TODO: move to scope?
     @wikis = Wiki.where(user_id: current_user.id)
     if @wikis == nil then
       @wikis = []

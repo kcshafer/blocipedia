@@ -15,12 +15,14 @@
       </div>
     </fieldset>
 
-    <fieldset class="form-group">
-      <div class="field">
-        <label for="private">Private?</label>
-        <%= f.check_box :private, id: "private", class: "form-control" %>
-      </div>
-    </fieldset>
+    <% if current_user.premium %>
+      <fieldset class="form-group">
+        <div class="field">
+          <label for="private">Private?</label>
+          <%= f.check_box :private, id: "private", class: "form-control" %>
+        </div>
+      </fieldset>
+    <% end %>
 
     <%= f.submit "Create", class: "btn btn-primary", type: "submit" %>
   <% end %>
