@@ -2,7 +2,7 @@ class WikisController < ApplicationController
   before_action :require_login, except: [:index, :show]
 
   def index
-    @wikis = Wiki.all
+    @wikis = Wiki.where(private: false)
   end
 
   def my_wikis
@@ -24,6 +24,7 @@ class WikisController < ApplicationController
     @wiki = Wiki.new
     @wiki.title = params[:wiki][:title]
     @wiki.body = params[:wiki][:body]
+    @wiki.private = params[:wiki][:private]
     @wiki.user_id = current_user.id
 
     if @wiki.save!
@@ -43,6 +44,7 @@ class WikisController < ApplicationController
     @wiki = Wiki.find(params[:id])
     @wiki.title = params[:wiki][:title]
     @wiki.body = params[:wiki][:body]
+    @wiki.private = params[:wiki][:private]
 
     if @wiki.save!
       flash[:notice] = "Wiki was saved."

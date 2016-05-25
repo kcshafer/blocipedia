@@ -1,4 +1,7 @@
 <div id="wiki-container">
+    <% if @wiki.user_id == current_user.id || current_user.role == 'admin' %>
+      <%= button_to "Edit", edit_wiki_path(@wiki.id), method: :get, class: "btn btn-primary" %>
+    <% end %>
     <h2><u><%= @wiki.title %></u></h2>
     <p><small>Created by <%= @wiki.user.email %> at <%= @wiki.created_at %> and last updated <%= @wiki.updated_at %></small></p>
     <p><%= @wiki.body %></p>

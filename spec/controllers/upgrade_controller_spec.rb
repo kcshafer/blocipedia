@@ -40,7 +40,7 @@ RSpec.describe UpgradeController, type: :controller do
               :headers => {'Accept'=>'*/*; q=0.5, application/xml', 'Accept-Encoding'=>'gzip, deflate', 'Authorization'=>'Bearer sk_test_SAkSMpq5LsDKjiEZmaqAFR6M', 'Content-Length'=>'38', 'Content-Type'=>'application/x-www-form-urlencoded', 'User-Agent'=>'Stripe/v1 RubyBindings/1.42.0', 'X-Stripe-Client-User-Agent'=>'{"bindings_version":"1.42.0","lang":"ruby","lang_version":"2.3.0 p0 (2015-12-25)","platform":"x86_64-darwin14","engine":"ruby","publisher":"stripe","uname":"Darwin KCs-MacBook-Pro.local 15.4.0 Darwin Kernel Version 15.4.0: Fri Feb 26 22:08:05 PST 2016; root:xnu-3248.40.184~3/RELEASE_X86_64 x86_64","hostname":"KCs-MacBook-Pro.local"}'}).
          to_return(:status => 200, :body => '{}', :headers => {})
 
-        post :upgrade, { stripeToken: "12345" }
+        post :upgrade, { stripeToken: "12345" , id: "12345"}
         expect(response).to have_http_status(:success)
       end
     end
