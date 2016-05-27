@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   before_create :set_defaults
   after_update :complete_downgrade
 
+has_many :wikis, :dependent => :delete_all
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
