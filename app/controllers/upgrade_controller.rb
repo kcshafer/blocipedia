@@ -1,7 +1,7 @@
 class UpgradeController < ApplicationController
   before_action :require_login
 
-  def index
+  def show
     @user = User.find(params[:id])
     @stripe_btn_data = {
         key: "#{ Rails.configuration.stripe[:publishable_key] }",
@@ -10,7 +10,7 @@ class UpgradeController < ApplicationController
     }
   end
 
-  def upgrade
+  def create
     # Creates a Stripe Customer object, for associating
     # with the charge
     customer = Stripe::Customer.create(
@@ -42,10 +42,10 @@ class UpgradeController < ApplicationController
      redirect_to upgrade_path(current_user.id)
     end
 
-    def downgrade
+    def destroy
       current_user.premium = false
       current_user.save!
 
-      redirect_to edit_user_registration_path(current_user)
+      redirect_to edit_user_registration_path
     end
 end
