@@ -15,7 +15,7 @@
       </div>
     </fieldset>
 
-    <% if current_user.premium || current_user.role == 'admin' %>
+    <% if current_user.role = 'premium' || current_user.role == 'admin' %>
       <fieldset class="form-group">
         <div class="field">
           <label for="private">Private?</label>

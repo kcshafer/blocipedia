@@ -26,7 +26,7 @@ class UpgradeController < ApplicationController
      currency: 'usd'
     )
 
-    current_user.premium = true
+    current_user.role = 'premium'
     current_user.save!
 
     flash[:notice] = "Thanks for all the money, #{current_user.email}! Feel free to pay me again."
@@ -43,7 +43,7 @@ class UpgradeController < ApplicationController
     end
 
     def destroy
-      current_user.premium = false
+      current_user.role = 'member'
       current_user.save!
 
       redirect_to edit_user_registration_path

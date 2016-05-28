@@ -1,6 +1,6 @@
 <div id="profile-container">
   <h2>Edit <%= resource_name.to_s.humanize %></h2>
-  <% if !current_user.premium %>
+  <% if current_user.role != 'premium' %>
     <div class="alert alert-warning" role="alert">
       You are missing out on all the awesome benifits of being a premium user. <%= link_to "Upgrade", upgrade_path(:id => current_user.id), method: :get =%> now to get started.
     </div>
@@ -40,7 +40,7 @@
 
   <br/>
 
-<% if current_user.premium %>
+<% if current_user.role == 'premium' %>
    <%= button_to "Cancel Premium", upgrade_path(current_user.id), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-primary" %></p>
 <% end %>
  <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-primary" %></p>
