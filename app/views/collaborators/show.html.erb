@@ -1,0 +1,31 @@
+<ul class="list-group center-list">
+    <% @collaborators.each do |c| %>
+        <li class="list-group-item">
+            <%= c.email %>
+            <%= c.user_id %>
+            <%= c.id %>
+            <%= form_for c, url: c.wiki_id == nil ? collaborators_path : collaborator_path, method: c.wiki_id == nil ? :post : :delete do |f| %>
+                <%= f.hidden_field :wiki_id, value: @wiki_id %>
+                <%= f.hidden_field :user_id, value: c.user_id %>
+                <%= f.hidden_field :collab_id, value: c.id %>
+                <% if c.id == nil %>
+                    <%= f.submit "Add", class: "btn btn-primary", type: "submit" %>
+                <% else %>
+                    <%= f.submit "Remove", class: "btn btn-primary", type: "submit" %>
+                <% end %>
+            <% end %>
+        </li>
+    <% end %>
+</ul>
+
+<%#= link_to "Add", wiki_collaborators_path(@wiki, user_id: user.id), method: :post, class: "btn" %>
+
+<!-- params[:user_id]
+
+def collaborator_for(user)
+    collbaorators.where(user_id: user.id).first
+end -->
+
+<%#= @wiki.collaborator_for(user) %>
+<%#= link_to "Remove", [@wiki, collaborator], method: :delete, class: "btn  btn-danger" %>
+

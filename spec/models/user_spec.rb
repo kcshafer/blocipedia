@@ -6,7 +6,7 @@ RSpec.describe User, type: :model do
 
     describe "non devise attributes" do
         it "has role, premium attributes" do
-            expect(user).to have_attributes(role: user.role, premium: user.premium)
+            expect(user).to have_attributes(role: user.role)
         end
 
         it "has role" do

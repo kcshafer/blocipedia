@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
 
   get '/my_wikis', to: 'wikis#my_wikis'
-  
+    
   resources :upgrade
 
-  resources :wikis 
+  resources :wikis do
+    resources :collaborators, only: [:index, :create, :destroy]
+  end
 
   devise_for :users
 

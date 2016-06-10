@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   after_update :complete_downgrade
 
   has_many :wikis, :dependent => :delete_all
+  has_many :collaborators, :dependent => :delete_all
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
